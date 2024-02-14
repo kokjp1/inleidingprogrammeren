@@ -70,29 +70,34 @@ function hit() {
     card.new = true; // Add a new property to the card
     playerHand.push(card);
     displayHands();
+    if (handValue(playerHand) == 21) {
+        document.getElementsByClassName('hitbutton btn')[0].disabled = true;
+    }
+    
     if (handValue(playerHand) > 21) {
-        endGame();
+            endGame();
     }
 }
 
 function stand() {
     let i = 0;
     function drawCard() {
-        if (handValue(dealerHand) < 21) {
+        if (handValue(dealerHand) < 16) {
             dealerHand.push(deck.pop());
             displayHands();
             if (handValue(dealerHand) == 21 || handValue(dealerHand) > 21 || handValue(dealerHand) > handValue(playerHand)){
                 endGame();
             } 
-            
             else {
                 i++;
                 setTimeout(drawCard, 1250 * i); // Delay the next card by an additional second
             }
+        } else {
+            endGame(); // Add this line to end the game when the dealer's hand value is 16 or higher
         }
     }
     drawCard();
-} 
+}
 
 function displayHands() {
     document.getElementById('player-hand').textContent = "Player hand: " + playerHand.map(card => card.value + ' of ' + card.suit).join(', ') + " Value: " + handValue(playerHand);
@@ -140,33 +145,28 @@ function endGame() {
     let dealerValue = handValue(dealerHand);
     let result;
     
-    if (playerValue == 21) {
-        result = "Blackjack! Player wins!";
+    if (dealerValue === playerValue){
+        result = "It's a tie!";
     }
-
+    else if (playerValue == 21) {
+        result = "Blackjack! Player wins!"
+    }
     else if (playerValue > 21) {
         result = "Player busts! Dealer wins.";
     } 
-           
     else if (dealerValue === 21) {
         result = "Blackjack! Dealer wins!";
     }
-
     else if (dealerValue > 21) {
         result = "Dealer busts! Player wins.";
     } 
-
     else if (playerValue > dealerValue) {
         result = "Player wins!";
     } 
-    
     else if (dealerValue > playerValue) {
         result = "Dealer wins!";
     } 
-    
-    else if (dealerValue === 21 && playerValue === 21){
-        result = "It's a tie!";
-    }
+
     document.getElementsByClassName('startbutton btn')[0].textContent = 'Play again?';
     document.getElementById('result').textContent = result; // Display the result
     document.getElementsByClassName('hitbutton btn')[0].disabled = true;
