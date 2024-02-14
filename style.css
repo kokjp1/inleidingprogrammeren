@@ -1,0 +1,169 @@
+body {
+    background-image: url("images/table.jpg");
+    background-size:cover;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    margin-top: 15em;
+    color:white;
+}
+
+#game-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+#game-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5em;
+}
+
+#start-btn {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+#hit-btn, #stand-btn {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    background-color: #f44336;
+    cursor: pointer;
+    margin-bottom:1em;
+}
+
+#player-hand-images, #dealer-hand-images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#player-hand-images img, #dealer-hand-images img {
+    width: 10em; /* Adjust as needed */
+    height: auto;
+    margin: 5px;
+}
+
+#player-hand, #dealer-hand, #result {
+    text-align: center;
+}
+
+/* START code gemaakt met behulp van Github Copilot met aanpassingen van mijzelf */
+
+@keyframes flip {
+    0% {
+        transform: perspective(600px) rotateY(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: perspective(600px) rotateY(180deg);
+        opacity: 0.1;
+    }
+    100% {
+        transform: perspective(600px) rotateY(360deg);
+        opacity: 1;
+    }
+}
+
+/* SLUIT code gemaakt met behulp van Github Copilot met aanpassingen van mijzelf */
+
+
+.card {
+    animation: flip 1s ease-out;
+}
+
+/* START code gemaakt met behulp van [cssbuttons.app] met aanpassingen van mijzelf */
+
+.startbutton {
+    width: 21.5em;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    height: 7.5em;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 1em;
+    transition: all .4s ease-in-out;
+  }
+  
+.startbutton:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+  }
+  
+.startbutton.btn {
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #40e495,
+      #30dd8a,
+      #2bb673
+    );
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+  }
+
+/* SLUIT code gemaakt met behulp van [cssbuttons.app] met aanpassingen van mijzelf */
+
+.hitbutton, .standbutton {
+    width: 10em;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    margin: 1.5em .5em 1.5em .5em;
+    height: 3.5em;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 1em;
+    transition: all .4s ease-in-out;
+  }
+  
+.hitbutton:hover {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+  }
+  
+.standbutton:hover {
+    background-position: -100% 0;
+    transition: all .4s ease-in-out;
+  
+}
+
+.hitbutton.btn, .standbutton.btn {
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #406ce4,
+      #775bdd,
+      #9cb0f3
+    );
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.standbutton.btn {
+    background-image: linear-gradient(
+      to right,
+      #ff0000,
+      #fc5050,
+      #fa6b6b,
+      #ff6600
+    );
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.standbutton.btn:disabled, .hitbutton.btn:disabled {
+    opacity: 0.5;
+    background-image: none;
+    background-color: gray;
+    cursor: not-allowed;
+}
