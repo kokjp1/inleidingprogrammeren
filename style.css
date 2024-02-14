@@ -140,6 +140,7 @@ main {
 }
 
 .hitbutton.btn, .standbutton.btn {
+    display:none;
     background-image: linear-gradient(
       to right,
       #25aae1,

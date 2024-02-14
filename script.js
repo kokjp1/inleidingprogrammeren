@@ -59,6 +59,8 @@ function startGame() {
     displayHands();
     document.getElementById('result').textContent = ''; // Clear the result
     document.getElementsByClassName('startbutton btn')[0].textContent = 'Restart Game';
+    document.getElementsByClassName('hitbutton btn')[0].style.display = 'inline-block';
+    document.getElementsByClassName('standbutton btn')[0].style.display = 'inline-block';
     document.getElementsByClassName('hitbutton btn')[0].disabled = false;
     document.getElementsByClassName('standbutton btn')[0].disabled = false;
 }
