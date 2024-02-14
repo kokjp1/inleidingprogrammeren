@@ -58,6 +58,7 @@ function startGame() {
     dealerHand = hands.dealerHand;
     displayHands();
     document.getElementById('result').textContent = ''; // Clear the result
+    document.getElementsByClassName('startbutton btn')[0].textContent = 'Restart Game';
     document.getElementsByClassName('hitbutton btn')[0].disabled = false;
     document.getElementsByClassName('standbutton btn')[0].disabled = false;
 }
@@ -164,7 +165,7 @@ function endGame() {
     else if (dealerValue === 21 && playerValue === 21){
         result = "It's a tie!";
     }
-    
+    document.getElementsByClassName('startbutton btn')[0].textContent = 'Play again?';
     document.getElementById('result').textContent = result; // Display the result
     document.getElementsByClassName('hitbutton btn')[0].disabled = true;
     document.getElementsByClassName('standbutton btn')[0].disabled = true;
